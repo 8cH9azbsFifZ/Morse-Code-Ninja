@@ -26,6 +26,9 @@ you may define AWS_KEY_ID and AWS_SECRET_ACCESS_KEY as environmental variables.
 
 4. Run this command to make sure that you don't accidentally check in your key! `git update-index --assume-unchanged aws.properties`
 
+##### GZ
+docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 perl render.pl -i example.txt -o mp3
+
 
 # Usage
 #### EXAMPLE:
@@ -82,15 +85,3 @@ multiple copies are executing at the same time using the same output directory.
 Be aware that the script can create a huge number of temporary files, which is proportional to the input file. Some types of filesystems will deal with this better than others.
 
 This set of scripts works on Linux and macOS.
-
-# Docker Usage
-This usage limits the required software to:
-- [Docker](https://www.docker.com/get-started/) 
-- [AWS Cloud Setup](#cloud-setup)
-
-To run
-```
-./morse-code-ninja.sh -i example.txt
-```
-
-The script `morse-code-ninja.sh` wraps the docker compose command passing all arguments to the dockerized `render.pl` 
