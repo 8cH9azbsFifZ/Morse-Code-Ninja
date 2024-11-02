@@ -26,11 +26,14 @@ you may define AWS_KEY_ID and AWS_SECRET_ACCESS_KEY as environmental variables.
 
 4. Run this command to make sure that you don't accidentally check in your key! `git update-index --assume-unchanged aws.properties`
 
-##### GZ
-docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 perl render.pl -i example.txt -o mp3
-
 
 # Usage
+##### Run in docker
+    docker build . -t mp3
+    docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 perl render.pl -i example.txt -o mp3
+    docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 ./entrypoint.sh -i practice-sets/instant-qso-element-courses/Course\ 01\ -\ Lesson\ 022\ -\ RST\ -\ Introduce\ New\ Element.txt
+
+    
 #### EXAMPLE:
     perl render.pl -i example.txt
     
@@ -42,8 +45,6 @@ docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 perl render.pl -i 
                    [-m max processes] [-z 1] [-rr 1] [--test] [-l word limit]
                    [--norepeat] [--nospoken] [--nocourtesytone] [-e NEURAL | STANDARD] 
                    [--sm] [--ss] [--sv] [-x] [--lang ENGLISH | SWEDISH]
-
-Uses AWS Polly and requires valid credentials in the aws.properties file.<br/><br/>
 
 #### OPTIONS:
 

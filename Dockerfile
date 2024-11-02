@@ -9,5 +9,6 @@ RUN pip3 install -r requirements.txt
 
 RUN mkdir -p /opt/morse-code-ninja
 WORKDIR /opt/morse-code-ninja
+RUN mkdir mp3
 
 ADD . .

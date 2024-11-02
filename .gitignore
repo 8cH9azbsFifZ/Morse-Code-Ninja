@@ -19,6 +19,7 @@ venv/
 *.log
 
 # Don't check in rendered mp3 files
+mp3/
 *.mp3
 example-00001.txt
 example-sentences.txt
