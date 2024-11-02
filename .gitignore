@@ -15,6 +15,7 @@ aws.properties*
 
 # python venv
 venv/
+.venv/
 
 *.log
 

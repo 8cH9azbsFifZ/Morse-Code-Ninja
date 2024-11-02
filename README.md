@@ -4,34 +4,19 @@ The software used to generate Morse Code Ninja practice sets as found on
 [Kurt Zoglmann's YouTube Channel](https://www.youtube.com/channel/UCXrTMfMEhkC9rVyQNU5aZlA).
 
 # Required Software
-These must be installed and available in your Shell's PATH.
-* [ebook2cw](https://fkurz.net/ham/ebook2cw.html)
-* [ffmpeg](https://ffmpeg.org)
-* [lame](https://lame.sourceforge.io/)
-* [Perl 5](https://www.perl.org)
-* [Python 3](https://www.python.org)
-* [Boto3](https://aws.amazon.com/sdk-for-python/)
 
-# Cloud Setup
-1. Set up an AWS Account. Feel free to follow these 
-[instructions](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
+# Setup macOS
+python3 -m venv .venv  
+source .venv/bin/activate
+pip3 install -r requirements.txt
+brew install ebook2cw lame ffmpeg
 
-2. Create an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html). 
-For ease, I recommend using the "console" for this. During creation, give 
-the IAM user "Programmatic access." When prompted save the **key ID** and **secret access key**.
-During the creation, attach the **AmazonPollyFullAccess** policy to the user.
-   
-3. Edit the aws.properties file. Set the **key ID** and **secret access key**. As an alternative, 
-you may define AWS_KEY_ID and AWS_SECRET_ACCESS_KEY as environmental variables.
-
-4. Run this command to make sure that you don't accidentally check in your key! `git update-index --assume-unchanged aws.properties`
-
+perl render.pl -i practice-sets/instant-qso-element-courses/Course\ 01\ -\ Lesson\ 022\ -\ RST\ -\ Introduce\ New\ Element.txt
 
 # Usage
-##### Run in docker
+##### Run in docker (WIP)
     docker build . -t mp3
     docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 perl render.pl -i example.txt -o mp3
-    docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 ./entrypoint.sh -i practice-sets/instant-qso-element-courses/Course\ 01\ -\ Lesson\ 022\ -\ RST\ -\ Introduce\ New\ Element.txt
 
     
 #### EXAMPLE:
