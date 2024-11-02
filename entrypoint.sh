@@ -1,3 +1,5 @@
 #!/bin/bash
+cp /input/* .
 perl render.pl "$@"
-mv *.mp3 ./mp3
+mv *.mp3 /output
+

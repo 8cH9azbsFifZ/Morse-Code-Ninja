@@ -16,7 +16,7 @@ perl render.pl -i practice-sets/instant-qso-element-courses/Course\ 01\ -\ Lesso
 # Usage
 ##### Run in docker (WIP)
     docker build . -t mp3
-    docker run --rm -it -v $PWD/mp3:/opt/morse-code-ninja/mp3 mp3 perl render.pl -i example.txt -o mp3
+    docker run --rm -it -v $PWD/practice-sets/instant-qso-element-courses/Course\ 01\ -\ Lesson\ 022\ -\ RST\ -\ Introduce\ New\ Element.txt:/input/input.txt:ro -v $PWD/mp3:/output mp3 ./entrypoint.sh -i input.txt
 
     
 #### EXAMPLE:
